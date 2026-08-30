@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Jobs - CareerNest</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <nav class="navbar">
+
+        <div class="logo">
+            Career<span>Nest</span>
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+<li><a href="jobs.html" class="active">Jobs</a></li>
+<li><a href="applications.html">Applications</a></li>
+<li><a href="login.html">Login</a></li>
+<li><a href="admin.html">Admin</a></li>
+<li><a href="register.html" class="register-btn">Register</a></li>
+        </ul>
+
+    </nav>
+</header>
+
+
+<section class="jobs-section">
+
+    <div class="page-heading">
+
+        <p class="small-title">CAREER OPPORTUNITIES</p>
+
+        <h1>Find Your Dream Job</h1>
+
+        <p>
+            Explore opportunities specially selected for freshers.
+        </p>
+
+    </div>
+
+
+    <!-- SEARCH -->
+
+    <!-- SEARCH -->
+
+<div class="search-box">
+
+    <input
+        type="text"
+        id="jobSearch"
+        placeholder="Search job title or skill..."
+    >
+
+    <select id="locationFilter">
+        <option value="">All Locations</option>
+        <option value="Chennai">Chennai</option>
+        <option value="Bangalore">Bangalore</option>
+        <option value="Hyderabad">Hyderabad</option>
+        <option value="Pune">Pune</option>
+        <option value="Mumbai">Mumbai</option>
+    </select>
+
+    <select id="jobTypeFilter">
+        <option value="">All Job Types</option>
+        <option value="Full Time">Full Time</option>
+        <option value="Part Time">Part Time</option>
+        <option value="Internship">Internship</option>
+        <option value="Remote">Remote</option>
+    </select>
+
+    <button onclick="searchJobs()">
+        Search
+    </button>
+
+</div>
+
+
+    <!-- JOB CONTAINER -->
+
+    <div class="job-container" id="jobContainer">
+
+
+        <!-- JOB 1 -->
+
+        <div class="job-card">
+
+            <div class="company-logo">
+                TCS
+            </div>
+
+            <div class="job-info">
+
+                <h2>Java Developer</h2>
+
+                <h3>TCS</h3>
+
+                <p>📍 Chennai</p>
+
+                <p>💼 Full Time</p>
+
+                <div class="skills">
+
+                    <span>Java</span>
+
+                    <span>Spring Boot</span>
+
+                    <span>MySQL</span>
+
+                </div>
+
+            </div>
+            <button class="details-btn" onclick="viewJob(1)">
+    View Details
+</button>
+
+<button class="apply-btn" onclick="applyJob(1, 'Java Developer')">
+    Apply Now
+</button>
+
+        </div>
+
+
+        <!-- JOB 2 -->
+
+        <div class="job-card">
+
+            <div class="company-logo">
+                INF
+            </div>
+
+            <div class="job-info">
+
+                <h2>Software Engineer</h2>
+
+                <h3>Infosys</h3>
+
+                <p>📍 Bangalore</p>
+
+                <p>💼 Full Time</p>
+
+                <div class="skills">
+
+                    <span>Java</span>
+
+                    <span>SQL</span>
+
+                    <span>HTML</span>
+
+                    <span>CSS</span>
+
+                </div>
+
+            </div>
+            <button class="details-btn" onclick="viewJob(2)">
+    View Details
+</button>
+
+<button class="apply-btn"
+        onclick="applyJob(2, 'Software Engineer')">
+    Apply Now
+</button>
+
+        </div>
+
+
+        <!-- JOB 3 -->
+
+        <div class="job-card">
+
+            <div class="company-logo">
+                WIP
+            </div>
+
+            <div class="job-info">
+
+                <h2>Web Developer</h2>
+
+                <h3>Wipro</h3>
+
+                <p>📍 Hyderabad</p>
+
+                <p>💼 Full Time</p>
+
+                <div class="skills">
+
+                    <span>HTML</span>
+
+                    <span>CSS</span>
+
+                    <span>JavaScript</span>
+
+                </div>
+
+            </div>
+            <button class="details-btn" onclick="viewJob(3)">
+    View Details
+</button>
+
+            <button
+                class="apply-btn"
+                onclick="applyJob(3, 'Web Developer')"
+            >
+                Apply Now
+            </button>
+
+        </div>
+
+
+        <!-- JOB 4 -->
+
+        <div class="job-card">
+
+            <div class="company-logo">
+                ACC
+            </div>
+
+            <div class="job-info">
+
+                <h2>Backend Developer</h2>
+
+                <h3>Accenture</h3>
+
+                <p>📍 Pune</p>
+
+                <p>💼 Part Time</p>
+
+                <div class="skills">
+
+                    <span>Java</span>
+
+                    <span>Spring Boot</span>
+
+                    <span>MySQL</span>
+
+                </div>
+
+            </div>
+
+            <button
+                class="apply-btn"
+                onclick="applyJob(4, 'Backend Developer')"
+            >
+                Apply Now
+            </button>
+
+        </div>
+
+
+        <!-- JOB 5 -->
+
+        <div class="job-card">
+
+            <div class="company-logo">
+                COG
+            </div>
+
+            <div class="job-info">
+
+                <h2>Junior Java Developer</h2>
+
+                <h3>Cognizant</h3>
+
+                <p>📍 Chennai</p>
+
+                <p>💼 Internship</p>
+
+                <div class="skills">
+
+                    <span>Java</span>
+
+                    <span>SQL</span>
+
+                    <span>Spring</span>
+
+                </div>
+
+            </div>
+
+            <button
+                class="apply-btn"
+                onclick="applyJob(5, 'Junior Java Developer')"
+            >
+                Apply Now
+            </button>
+
+        </div>
+
+
+    </div>
+    
+        
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div class="footer-content">
+
+        <h2>CareerNest</h2>
+
+        <p>
+            Your first step towards a successful career.
+        </p>
+
+    </div>
+
+    <p class="copyright">
+        © 2026 CareerNest. All Rights Reserved.
+    </p>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>

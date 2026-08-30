@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Add Job - CareerNest</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <nav class="navbar">
+
+        <div class="logo">
+            Career<span>Nest</span>
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="jobs.html">Jobs</a></li>
+            <li><a href="applications.html">Applications</a></li>
+            <li><a href="admin.html">Admin</a></li>
+        </ul>
+
+    </nav>
+</header>
+
+<section class="jobs-section">
+
+    <div class="page-heading">
+        <p class="small-title">ADMIN PANEL</p>
+
+        <h1>Add New Job</h1>
+
+        <p>Create a new job opportunity for freshers.</p>
+    </div>
+
+    <div class="job-form">
+
+        <input
+            type="text"
+            id="title"
+            placeholder="Job Title"
+            required
+        >
+
+        <input
+            type="text"
+            id="company"
+            placeholder="Company Name"
+            required
+        >
+
+        <input
+            type="text"
+            id="location"
+            placeholder="Location"
+            required
+        >
+
+        <input
+            type="text"
+            id="skills"
+            placeholder="Skills (Example: Java, SQL, Spring Boot)"
+            required
+        >
+
+        <textarea
+            id="description"
+            placeholder="Job Description"
+            rows="5"
+            required
+        ></textarea>
+
+        <button class="apply-btn" onclick="addJob()">
+            Add Job
+        </button>
+
+    </div>
+
+</section>
+
+<footer>
+
+    <div class="footer-content">
+        <h2>CareerNest</h2>
+        <p>Your first step towards a successful career.</p>
+    </div>
+
+    <p class="copyright">
+        © 2026 CareerNest. All Rights Reserved.
+    </p>
+
+</footer>
+
+<script>
+
+async function addJob() {
+
+    const title = document.getElementById("title").value;
+    const company = document.getElementById("company").value;
+    const location = document.getElementById("location").value;
+    const skills = document.getElementById("skills").value;
+    const description = document.getElementById("description").value;
+
+    if (!title || !company || !location || !skills || !description) {
+        alert("Please fill all fields.");
+        return;
+    }
+
+    try {
+
+        const response = await fetch("/api/jobs", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                title: title,
+                company: company,
+                location: location,
+                skills: skills,
+                description: description
+            })
+        });
+
+        if (response.ok) {
+
+            alert("Job added successfully! 🎉");
+
+            document.getElementById("title").value = "";
+            document.getElementById("company").value = "";
+            document.getElementById("location").value = "";
+            document.getElementById("skills").value = "";
+            document.getElementById("description").value = "";
+
+        } else {
+
+            alert("Failed to add job.");
+
+        }
+
+    } catch (error) {
+
+        console.error(error);
+        alert("Unable to connect to server.");
+
+    }
+}
+
+</script>
+
+</body>
+</html>
